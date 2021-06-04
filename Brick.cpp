@@ -40,22 +40,22 @@ void Brick::set_bricks()				// n is the sum of bricks
 	Coord temp;
 	temp.set_coord(0, 0);
 	for (int i = 0; i < sum_bricks; i++) {
-		if (i < 10) {
+		if (i < 20) {
 			all_bricks.push_back(temp);
-			temp.set_coord(temp.get_x()+1, temp.get_y());
+			temp.set_coord(temp.get_x() + 2, temp.get_y());
 		}
-		else if (10 <= i && i < 20){
+		else if (20 <= i && i < 40){
 			all_bricks.push_back(temp);
-			temp.set_coord(temp.get_x() + 1, temp.get_y());
+			temp.set_coord(temp.get_x() + 2, temp.get_y());
 		}
 		else {
 			all_bricks.push_back(temp);
-			temp.set_coord(temp.get_x() + 1, temp.get_y());
+			temp.set_coord(temp.get_x() + 2, temp.get_y());
 		}
-		if (i == 9) {
+		if (i == 19) {
 			temp.set_coord(0, temp.get_y() + 1);
 		}
-		else if (i == 19){
+		else if (i == 39){
 			temp.set_coord(0, temp.get_y() + 2);
 		}
 	}
@@ -98,18 +98,29 @@ void Brick::reset_bricks()
 	}
 }
 
-void Brick::print_bricks()
+void Brick::Render()
 {	
 	for (int i = 0; i < sum_bricks; i++) {
-		if (all_bricks[i].get_display_signal()) {
-			cout << "¡ö";
-		}
-		else {
-			cout << " ";
-		}
 		if (i % 20 == 0) {
-			gotoxy(goto_x, goto_y+2);
+			gotoxy(goto_x, goto_y + 2);
 			goto_y = goto_y + 2;
 		}
+		if (all_bricks[i].get_display_signal()) {
+			cout << "â– ";
+		}
+		else {
+			cout << "  ";
+		}
+	}
+}
+Coord Brick::get_coord(int x, int y) {
+	if (x == 0) {
+		return all_bricks[x + y];
+	}
+	else if (x == 1) {
+		return all_bricks[x + y + 19];
+	}
+	else if (x == 2) {
+		return all_bricks[x + y + 39];
 	}
 }
