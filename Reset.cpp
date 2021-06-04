@@ -25,7 +25,8 @@ bool Reset(Brick& bricks, BALL& ball, Bar& bar, bool& challenge_flag) {
 			}
 			else if (option == 2) {
 				bricks.reset_bricks();
-				ball.f_InitBALL();				challenge_flag = false;
+				ball.f_InitBALL();				
+				challenge_flag = false;
                 return challenge_flag;                          // first screen print out
 			}
         }
