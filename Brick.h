@@ -12,13 +12,11 @@ public:
 	void delete_bricks(int n);			// n is brick number
 	void clear_bricks();
 	void score_print();
-	int score_add();
 	void reset_bricks();
 	void Render();
 	int get_display_signal(int, int);
 	int get_x(int, int);
 	int get_y(int, int);
-	void reset_score();
 private:				
 	int sum_bricks = 60;
 	int score = 0;

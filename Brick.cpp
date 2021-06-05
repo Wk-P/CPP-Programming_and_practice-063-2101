@@ -30,6 +30,7 @@ void Brick::clear_bricks() {
 		all_bricks[i][1] = 0;
 		all_bricks[i][2] = 0;
 	}
+	score = 0;
 }
 
 void Brick::score_print()
@@ -56,7 +57,7 @@ void Brick::Render()
 		}
 		gotoxy(x, y);
 		if (all_bricks[i][2]) {
-			cout << "â– ";
+			cout << "¡á";
 		}
 		else {
 			cout << "  ";
