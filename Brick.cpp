@@ -53,17 +53,19 @@ void Brick::Render()
 {
 	int x = start_x;
 	int y = start_y;
-	for (int i = 1; i < sum_bricks+1; i++) {
+	for (int i = 0; i < sum_bricks; i++) {
 		if (i % 20 == 0) {
 			y = y + 2;
-			gotoxy(x, y);
+			x = start_x;
 		}
+		gotoxy(x, y);
 		if (*(all_bricks+i)[2]) {
-			cout << "¡á";
+			cout << "â– ";
 		}
 		else {
 			cout << "  ";
 		}
+		x += 2;
 	}
 }
 
