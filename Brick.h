@@ -5,20 +5,6 @@ using namespace std;
 #define BrickWidth 2
 #define BrickHeight 1
 
-class Coord {
-public:
-	int get_x();
-	int get_y();
-	void set_coord(int, int);
-	void display_set();
-	void blank_set();
-	int get_display_signal();
-private:
-	int x;
-	int y;
-	int display_signal = 1;
-};
-
 class Brick
 {
 public:
@@ -32,11 +18,11 @@ public:
 	int get_display_signal(int, int);
 	int get_x(int, int);
 	int get_y(int, int);
+	void reset_score();
 private:				
 	int sum_bricks = 60;
 	int score = 0;
-	int start_x = 3;
-	int start_y = 5;
+	int start_x = 5;
+	int start_y = 2;
 	int all_bricks[60][3];		//x, y, display_signal
 };
-

@@ -1,34 +1,35 @@
 #include "Reset.h"
 #include <iostream>
 #include "Brick.h"
- #include "ball.h"
-#include "gxy.h"
+#include "ball.h"
+#include "Screen.h"
+
 using namespace std;
 
-bool Reset(Brick& bricks, BALL& ball, Bar& bar, bool& challenge_flag) {
+bool Reset(Brick& bricks, Ball& ball, Bar& bar, bool& challenge_flag) {
     gotoxy(5, 5);
-    cout << "ê³µì´ ë°”ë‹¥ìœ¼ë¡œ ë–¨ì–´ì¡ŒìŠµë‹ˆë‹¤. \n";
-    cout << "\t1.ìž¬ë„ì „\n\t2.ì²˜ìŒí™”ë©´ìœ¼ë¡œ ëŒì•„ê°€ê¸°\n\t3.ê²Œìž„ì¢…ë£Œ" << endl;
+    cout << "°øÀÌ ¹Ù´ÚÀ¸·Î ¶³¾îÁ³½À´Ï´Ù. \n";
+    cout << "\t1.ÀçµµÀü\n\t2.Ã³À½È­¸éÀ¸·Î µ¹¾Æ°¡±â\n\t3.°ÔÀÓÁ¾·á" << endl;
     int option;
     while (1)
     {
         cin >> option;
         if (option == 1 || option == 2)
         {
-			if (option == 1) {									// play again
-				bricks.reset_bricks();
-				// ball direction reset
-				ball.f_InitBALL();
-                bar.initBar();
-				challenge_flag = true;
+            if (option == 1) {									// play again
+                bricks.reset_bricks();
+                // ball direction reset
+                ball.f_InitBALL();
+                bar.InitBar();
+                challenge_flag = true;
                 return challenge_flag;
-			}
-			else if (option == 2) {
-				bricks.reset_bricks();
-				ball.f_InitBALL();				
-				challenge_flag = false;
+            }
+            else if (option == 2) {
+                bricks.reset_bricks();
+                ball.f_InitBALL();				
+                challenge_flag = false;
                 return challenge_flag;                          // first screen print out
-			}
+            }
         }
         else if (option == 3)
         {
@@ -36,7 +37,7 @@ bool Reset(Brick& bricks, BALL& ball, Bar& bar, bool& challenge_flag) {
         }
         else
         {
-            cout << "ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”" << endl;
+            cout << "´Ù½Ã ¼±ÅÃÇØÁÖ¼¼¿ä" << endl;
             continue;
         }
     }
